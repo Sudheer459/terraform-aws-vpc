@@ -7,7 +7,7 @@ resource "aws_vpc" "main" {
     var.common_tags,
     var.vpc_tags,
     {
-        Name = local.resource_name
+      Name = local.resource_name
     }
   )
 }
@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "gw" {
     var.common_tags,
     var.igw_tags,
     {
-        Name = local.resource_name
+      Name = local.resource_name
     }
   )
 }
@@ -36,7 +36,7 @@ resource "aws_subnet" "public" { # first name is public[0], second name is publi
     var.common_tags,
     var.public_subnet_cidr_tags,
     {
-        Name = "${local.resource_name}-public-${local.az_names[count.index]}"
+      Name = "${local.resource_name}-public-${local.az_names[count.index]}"
     }
   )
 }
@@ -52,7 +52,7 @@ resource "aws_subnet" "private" { # first name is public[0], second name is publ
     var.common_tags,
     var.private_subnet_cidr_tags,
     {
-        Name = "${local.resource_name}-private-${local.az_names[count.index]}"
+      Name = "${local.resource_name}-private-${local.az_names[count.index]}"
     }
   )
 }
@@ -68,7 +68,7 @@ resource "aws_subnet" "database" { # first name is public[0], second name is pub
     var.common_tags,
     var.database_subnet_cidr_tags,
     {
-        Name = "${local.resource_name}-database-${local.az_names[count.index]}"
+      Name = "${local.resource_name}-database-${local.az_names[count.index]}"
     }
   )
 }
@@ -82,7 +82,7 @@ resource "aws_db_subnet_group" "default" {
     var.common_tags,
     var.database_subnet_group_tags,
     {
-        Name = "${local.resource_name}"
+      Name = "${local.resource_name}"
     }
   )
 }
@@ -99,7 +99,7 @@ resource "aws_nat_gateway" "nat" {
     var.common_tags,
     var.nat_gateway_tags,
     {
-        Name = "${local.resource_name}" #expense-dev
+      Name = "${local.resource_name}" #expense-dev
     }
   )
 
@@ -129,7 +129,7 @@ resource "aws_route_table" "private" {
     var.common_tags,
     var.private_route_table_tags,
     {
-        Name = "${local.resource_name}-private" #expense-dev-private
+      Name = "${local.resource_name}-private" #expense-dev-private
     }
   )
 }
@@ -142,7 +142,7 @@ resource "aws_route_table" "database" {
     var.common_tags,
     var.database_route_table_tags,
     {
-        Name = "${local.resource_name}-database" #expense-dev-database
+      Name = "${local.resource_name}-database" #expense-dev-database
     }
   )
 }
